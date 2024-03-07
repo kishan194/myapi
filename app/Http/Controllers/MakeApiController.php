@@ -16,4 +16,16 @@ class MakeApiController extends Controller
 
         return response()->json($data);
     }
+
+    public function store(Request $request){
+             
+        $user = new  User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        // dd($user);
+        $user->save();
+        return response()->json(['message' => 'Data stored successfully'], 201);
+
+    }
 }

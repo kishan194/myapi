@@ -23,5 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('make-api', [MakeApiController::class, 'makeApi']);
 
+Route::post('/store', [MakeApiController::class, 'store']);
 // Route::get('data',[MakeApiController::class,'data']);
 

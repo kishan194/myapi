@@ -27,11 +27,28 @@ class makeApi extends Command
      */
     public function handle()
     {
+        $postData = [
+            'name' => 'John Doe',
+            'email' => 'john@example.com',
+            'password' => "741258963"
+        ];
+
+       //post req to store the data
+        $response = Http::post('http://127.0.0.1:8000/api/store', $postData);
+        if ($response->successful()) {
+            $this->info('Data successfully stored.' . $response->status());
+        } else {
+            $this->error('Failed to store data. Status code: ' . $response->status());
+        }
+
+    /*view the data
              $response = Http::get('http://127.0.0.1:8000/api/make-api');
              $data = $response->json();
              foreach($data as $item){
                 $this->info('Item Name: ' . $item['name']);
                 $this->info('Item Email: ' . $item['email']);
-             }
+             } */ 
+     
+            
     }
 }

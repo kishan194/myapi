@@ -27,9 +27,11 @@ class makeApi extends Command
      */
     public function handle()
     {
-        $response = Http::get('https://dummyjson.com/products/1');
-        $data = $response->json();
-        $this->info('API Response:');
-        $this->info(json_encode($data, JSON_PRETTY_PRINT));
+             $response = Http::get('http://127.0.0.1:8000/api/make-api');
+             $data = $response->json();
+             foreach($data as $item){
+                $this->info('Item Name: ' . $item['name']);
+                $this->info('Item Email: ' . $item['email']);
+             }
     }
 }

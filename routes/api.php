@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Console\Commands\makeApi;
 use App\Http\Controllers\MakeApiController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,7 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('make-api', [MakeApiController::class, 'makeApi']);
-
 
 // Route::get('data',[MakeApiController::class,'data']);
 
